@@ -41,7 +41,7 @@
 
 # @lc code=start
 class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
+    def longestCommonPrefix(self, strs: List[str]):
         # if strs == []:
         #     return ''
         # prefix = strs[0]
