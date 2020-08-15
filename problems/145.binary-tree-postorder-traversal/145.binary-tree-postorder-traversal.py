@@ -39,7 +39,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
 class Solution:
     
     # Recursive
