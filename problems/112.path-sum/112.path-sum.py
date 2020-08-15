@@ -44,7 +44,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    
+
     # def hasPathSum(self, root: TreeNode, sum: int) -> bool:
         
     #     if not root:
