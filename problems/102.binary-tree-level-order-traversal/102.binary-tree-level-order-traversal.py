@@ -56,13 +56,11 @@ class Solution:
         
     #     def traversal(node, h):
     #         if node:
-    #             if len(out_list) <= h:
+    #             if len(out_list) == h:
     #                 out_list.append([])
     #             out_list[h].append(node.val)
     #             traversal(node.left, h+1)
     #             traversal(node.right, h+1)
-    #         else:
-    #             return
         
     #     traversal(root, 0)
     #     return out_list
@@ -83,6 +81,23 @@ class Solution:
                     next_level.append(cur.right)
             cur_level = next_level
         return out_list
+    
+    # Iterative
+    # def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    #     if not root:
+    #         return []
+    #     out_list = []
+    #     queue = [root]
+    #     while queue:
+    #         out_list.append([q.val for q in queue])
+    #         for i in range(len(queue)):
+    #             cur = queue.pop(0)
+    #             if cur.left:
+    #                 queue.append(cur.left)
+    #             if cur.right:
+    #                 queue.append(cur.right)
+                
+    #     return out_list
         
 # @lc code=end
 
