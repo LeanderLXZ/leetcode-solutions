@@ -45,24 +45,16 @@
 class Solution:
 
     # def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        
     #     dict_inorder = {v:i for i, v in enumerate(inorder)}
-
     #     def build(idx_left, idx_right):
-            
     #         if idx_left > idx_right:
     #             return None
-            
     #         val = preorder.pop(0)
     #         root = TreeNode(val)
-            
     #         idx_root = dict_inorder[val] 
-            
     #         root.left = build(idx_left, idx_root-1)
     #         root.right= build(idx_root+1, idx_right)
-
     #         return root
-
     #     return build(0, len(inorder)-1)
 
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:

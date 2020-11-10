@@ -138,7 +138,7 @@ class Solution:
     #                 queue.append(cur.left)
     #                 queue.append(cur.right)
     #         return root
-        
+    
     """
     leftmost = root
     while (leftmost.left != null)
@@ -160,8 +160,8 @@ class Solution:
                 head = left_most
                 while head:
                     head.left.next = head.right
-                    if head.next:
-                        head.right.next = head.next.left
+                    # if head.next:
+                    #     head.right.next = head.next.left
                     head = head.next
                 left_most = left_most.left
             return root

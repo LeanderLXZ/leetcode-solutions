@@ -44,10 +44,9 @@ class Solution:
     # def inorderTraversal(self, root: TreeNode) -> List[int]:
     #     if not root:
     #         return []
-    #     out = [*self.inorderTraversal(root.left),
-    #            root.val,
-    #            *self.inorderTraversal(root.right)]
-    #     return out
+    #     return [*self.inorderTraversal(root.left),
+    #             root.val,
+    #             *self.inorderTraversal(root.right)]
     
     # Iterative
     # def inorderTraversal(self, root: TreeNode) -> List[int]:

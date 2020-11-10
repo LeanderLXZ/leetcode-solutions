@@ -46,35 +46,33 @@
 class Solution:
 
     # def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-        
     #     if not root:
     #         return False
-        
     #     def traversal(node, acc):
     #         acc += node.val
     #         if not node.left and not node.right:
     #             return acc == sum
-    #         if node.left:
-    #             left = traversal(node.left, acc)
-    #         else:
-    #             left = False
-    #         if node.right:
-    #             right = traversal(node.right, acc)
-    #         else:
-    #             right = False
+    #         left = traversal(node.left, acc) if node.left else False
+    #         right = traversal(node.right, acc) if node.right else False
     #         return left or right
-        
     #     return traversal(root, 0)
     
+    # def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+    #     def helper(cur, cur_sum):
+    #         if not cur:
+    #             return False
+    #         cur_sum += cur.val
+    #         if not cur.left and not cur.right:
+    #             return cur_sum == sum
+    #         return helper(cur.left, cur_sum) or helper(cur.right, cur_sum)
+    #     return helper(root, 0)
+    
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-
         if not root:
             return False
-
         sum -= root.val
         if not root.left and not root.right:
             return sum == 0
-
         return self.hasPathSum(root.left, sum) or self.hasPathSum(root.right, sum)
         
 # @lc code=end

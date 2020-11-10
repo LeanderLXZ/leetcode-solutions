@@ -46,38 +46,53 @@
 class Solution:
     
     # def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-        
     #     dict_inorder = {v:i for i, v in enumerate(inorder)}
-        
     #     def build(idx_left, idx_right):
-            
     #         if idx_left > idx_right:
     #             return None
-            
     #         val = postorder.pop()
     #         root = TreeNode(val)
-            
     #         idx_root = dict_inorder[val]
-            
     #         root.right = build(idx_root+1, idx_right)
     #         root.left = build(idx_left, idx_root-1)
-            
     #         return root
-        
     #     return build(0, len(inorder)-1)
-    
+   
+    # Do not destory postorder
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-        
-        def build(bound=None):
-            if not inorder or inorder[-1] == bound:
+        dict_inorder = {v:i for i, v in enumerate(inorder)}
+        self.index = 1
+        def build(idx_left, idx_right):
+            if idx_left > idx_right:
                 return None
-            root = TreeNode(postorder.pop())
-            root.right = build(root.val)
-            inorder.pop()
-            root.left = build(bound)
+            root = TreeNode(postorder[-self.index])
+            self.index += 1
+            idx_root = dict_inorder[root.val]
+            root.right = build(idx_root+1, idx_right)
+            root.left = build(idx_left, idx_root-1)
             return root
-
-        return build()
+        return build(0, len(inorder)-1)
+    
+    # def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+    #     def build(bound=None):
+    #         if not inorder or inorder[-1] == bound:
+    #             return None
+    #         root = TreeNode(postorder.pop())
+    #         root.right = build(root.val)
+    #         inorder.pop()
+    #         root.left = build(bound)
+    #         return root
+    #     return build()
+    
+    # Beautiful but time- and space- consuming
+    # def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+    #     if not inorder:
+    #         return None
+    #     root = TreeNode(postorder.pop())
+    #     idx_root = inorder.index(root.val)
+    #     root.right = self.buildTree(inorder[idx_root+1:], postorder)
+    #     root.left = self.buildTree(inorder[:idx_root], postorder)
+    #     return root
         
 # @lc code=end
 

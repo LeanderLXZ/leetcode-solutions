@@ -45,8 +45,8 @@ class Solution:
     # def preorderTraversal(self, root: TreeNode) -> List[int]:
     #     if not root:
     #         return []
-    #     out = [root.val, 
-    #            *self.preorderTraversal(root.left), 
+    #     out = [root.val,
+    #            *self.preorderTraversal(root.left),
     #            *self.preorderTraversal(root.right)]
     #     return out
     

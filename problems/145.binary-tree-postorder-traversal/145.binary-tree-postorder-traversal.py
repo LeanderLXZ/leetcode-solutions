@@ -45,10 +45,9 @@ class Solution:
     # def postorderTraversal(self, root: TreeNode) -> List[int]:
     #     if not root:
     #         return []
-    #     out = [*self.postorderTraversal(root.left),
-    #            *self.postorderTraversal(root.right),
-    #            root.val]
-    #     return out
+    #     return [*self.postorderTraversal(root.left),
+    #             *self.postorderTraversal(root.right),
+    #             root.val]
 
     # Iterative
     # def postorderTraversal(self, root: TreeNode) -> List[int]:
@@ -69,6 +68,25 @@ class Solution:
     #             cur.right = None
     #     return out
     
+    # Approach 2: Iterative Preorder Traversal: Tweak the Order of the Output
+    # Let's start from the root, and at each iteration, pop the current node out
+    # of the stack and push its child nodes. In the implemented strategy, we
+    # push nodes into stack following the order Top->Bottom and Left->Right.
+    # Since DFS postorder transversal is Bottom->Top and Left->Right the output 
+    # list should be reverted after the end of the loop.
+    # def postorderTraversal(self, root: TreeNode) -> List[int]:
+    #     if not root:
+    #         return []
+    #     stack, out = [root], []
+    #     while stack:
+    #         cur = stack.pop()
+    #         out.append(cur.val)
+    #         if cur.left:
+    #             stack.append(cur.left)
+    #         if cur.right:
+    #             stack.append(cur.right)
+    #     return out[::-1]
+
     # Optimal iterative
     def postorderTraversal(self, root: TreeNode) -> List[int]:
         
@@ -87,10 +105,12 @@ class Solution:
             if stack == []:
                 out.append(cur.val)
                 break
+            # cur is not the leftmost leaf, so swap
             if cur.right and stack[-1] == cur.right:
                 stack.pop()
                 stack.append(cur)
                 cur = cur.right
+            # cur is the leftmost leaf, so update
             else:
                 out.append(cur.val)
                 cur = None
