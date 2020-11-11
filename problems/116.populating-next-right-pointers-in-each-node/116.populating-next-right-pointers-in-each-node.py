@@ -78,22 +78,6 @@ class Node:
 
 class Solution:
     
-    # def connect(self, root: 'Node') -> 'Node':
-        
-    #     stack = []
-        
-    #     def traversal(node, h):
-    #         if node:
-    #             if h == len(stack):
-    #                 stack.append(node)
-    #             else:
-    #                 stack[h].next = node
-    #                 stack[h] = node
-    #             traversal(node.left, h+1)
-    #             traversal(node.right, h+1)
-    #             return node
-        
-    #     return traversal(root, 0)
     
     # Iterative
     # def connect(self, root: 'Node') -> 'Node':
@@ -113,7 +97,22 @@ class Solution:
     #             cur_level = next_level
     #     return root
     
-    # Iterative
+    # Recursive (BFS)
+    # def connect(self, root: 'Node') -> 'Node':
+    #     stack = []
+    #     def traversal(node, h):
+    #         if node:
+    #             if h == len(stack):
+    #                 stack.append(node)
+    #             else:
+    #                 stack[h].next = node
+    #                 stack[h] = node
+    #             traversal(node.left, h+1)
+    #             traversal(node.right, h+1)
+    #             return node
+    #     return traversal(root, 0)
+    
+    # Iterative (BFS)
     """
     while (!Q.empty())
     {

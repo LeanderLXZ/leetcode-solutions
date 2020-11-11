@@ -57,18 +57,33 @@ class Solution:
     #         return root
     #     return build(0, len(inorder)-1)
 
+    
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        
-        def build(bound=None):
-            if not inorder or inorder[0] == bound:
+        inorder_dict = {v:i for i, v in enumerate(inorder)}
+        self.index = 0
+        def build(left_idx, right_idx):
+            if left_idx > right_idx:
                 return None
-            root = TreeNode(preorder.pop(0))
-            root.left = build(root.val)
-            inorder.pop(0)
-            root.right = build(bound)
+            root = TreeNode(preorder[self.index])
+            self.index += 1
+            root_idx = inorder_dict[root.val]
+            root.left = build(left_idx, root_idx - 1)
+            root.right = build(root_idx + 1, right_idx)
             return root
+        return build(0, len(inorder) - 1)
 
-        return build()
+    # def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        
+    #     def build(bound=None):
+    #         if not inorder or inorder[0] == bound:
+    #             return None
+    #         root = TreeNode(preorder.pop(0))
+    #         root.left = build(root.val)
+    #         inorder.pop(0)
+    #         root.right = build(bound)
+    #         return root
+
+    #     return build()
 
 # @lc code=end
 
