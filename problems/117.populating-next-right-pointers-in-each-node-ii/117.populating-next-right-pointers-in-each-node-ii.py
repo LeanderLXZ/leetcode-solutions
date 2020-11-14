@@ -91,27 +91,28 @@ class Solution:
                         queue.append(cur.right)
             return root
     
-    # def add_node(self, node):
-    #     self.pointers.append(node)
-    #     if not self.left_most:
-    #         self.left_most = node
-    #     if len(self.pointers) > 1:
-    #         left = self.pointers.pop(0)
-    #         left.next = self.pointers[0]
+
+    def add_node(self, node):
+        self.pointers.append(node)
+        if not self.left_most:
+            self.left_most = node
+        if len(self.pointers) > 1:
+            left = self.pointers.pop(0)
+            left.next = self.pointers[0]
         
-    # def connect(self, root: 'Node') -> 'Node':
-    #     if root:
-    #         self.left_most = root
-    #         while self.left_most:
-    #             head, self.pointers = self.left_most, []
-    #             self.left_most = None
-    #             while head:
-    #                 if head.left:
-    #                     self.add_node(head.left)
-    #                 if head.right:
-    #                     self.add_node(head.right)
-    #                 head = head.next
-    #         return root
+    def connect(self, root: 'Node') -> 'Node':
+        if root:
+            self.left_most = root
+            while self.left_most:
+                head, self.pointers = self.left_most, []
+                self.left_most = None
+                while head:
+                    if head.left:
+                        self.add_node(head.left)
+                    if head.right:
+                        self.add_node(head.right)
+                    head = head.next
+            return root
             
     
     """
