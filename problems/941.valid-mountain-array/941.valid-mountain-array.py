@@ -52,19 +52,19 @@
 # @lc code=start
 class Solution:
         
-    # def validMountainArray(self, arr: List[int]) -> bool:
-    #     i = 1
-    #     while i < len(arr) - 1:
-    #         if arr[i] <= arr[i-1]:
-    #             break
-    #         i += 1
-    #     if i == 1:
-    #         return False
-    #     while i < len(arr):
-    #         if arr[i] >= arr[i-1]:
-    #             return False
-    #         i += 1
-    #     return True
+    def validMountainArray(self, arr: List[int]) -> bool:
+        i = 1
+        while i < len(arr) - 1:
+            if arr[i] <= arr[i-1]:
+                break
+            i += 1
+        if i == 1:
+            return False
+        while i < len(arr):
+            if arr[i] >= arr[i-1]:
+                return False
+            i += 1
+        return True
     
     # Time Complexity: O(N), where N is the length of arr.
     # Space Complexity: O(1)

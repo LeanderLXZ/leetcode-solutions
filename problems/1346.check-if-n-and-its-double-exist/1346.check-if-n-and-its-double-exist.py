@@ -62,14 +62,14 @@
 # @lc code=start
 class Solution:
     
-    # def checkIfExist(self, arr: List[int]) -> bool:
-        #     if arr.count(0) > 1:
-        #         return True
-        #     for i in range(len(arr)):
-        #         for j in range(i + 1, len(arr)):
-        #             if arr[i] == 2 * arr[j] or arr[j] == 2 * arr[i]:
-        #                 return True
-        #     return False
+    def checkIfExist(self, arr: List[int]) -> bool:
+            if arr.count(0) > 1:
+                return True
+            for i in range(len(arr)):
+                for j in range(i + 1, len(arr)):
+                    if arr[i] == 2 * arr[j] or arr[j] == 2 * arr[i]:
+                        return True
+            return False
 
     # Use Map
     def checkIfExist(self, arr: List[int]) -> bool:

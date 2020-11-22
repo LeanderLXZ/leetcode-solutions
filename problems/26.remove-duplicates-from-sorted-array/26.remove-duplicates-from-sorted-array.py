@@ -63,6 +63,10 @@
 
 # @lc code=start
 class Solution:
+
+    # Time complextiy : O(n). Assume that nn is the length of array. 
+    # Each of ii and jj traverses at most nn steps.
+    # Space complexity : O(1)
     def removeDuplicates(self, nums: List[int]) -> int:
         if not nums:
             return 0
