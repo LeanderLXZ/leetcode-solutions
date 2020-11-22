@@ -63,8 +63,8 @@
 
 # @lc code=start
 class Solution:
-    def removeDuplicates(self, nums: List[int]):
-        if nums == []:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums:
             return 0
         i_new = 1
         for i in range(1, len(nums)):
