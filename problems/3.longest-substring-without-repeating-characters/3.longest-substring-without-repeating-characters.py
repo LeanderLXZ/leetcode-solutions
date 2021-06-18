@@ -65,6 +65,21 @@
 
 
 class Solution:
+
+    # Time O(n)
+    # Space O(m)
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        dict_ch = {}
+        res = 0
+        left = 0
+        for right in range(len(s)):
+            if s[right] in dict_ch:
+                # Be careful! left pointer should not go back
+                left = max(dict_ch[s[right]] + 1, left)
+            dict_ch[s[right]] = right
+            res = max(res, right - left + 1)
+        return res
+    
     def lengthOfLongestSubstring(self, s: str) -> int:
         # if len(s) == 1:
             # return 1
