@@ -64,6 +64,55 @@ class Solution:
         if pop > 0:
             sum.next = ListNode(pop)
         return sum_copy.next
+
+    # Time complexity : O(max(m,n)).
+    # Assume that mm and nn represents the length of l1l1 and l2l2 respectively,
+    # the algorithm above iterates at most max(m,n) times.
+    # Space complexity : O(max(m,n)).
+    # The length of the new list is at most max(m,n)+1.
+    # def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    #     c = 0
+    #     ans = ListNode()
+    #     ans_head = ans
+    #     p, q = l1, l2
+    #     while p or q or c:
+    #         if p:
+    #             p_v = p.val
+    #             p = p.next
+    #         else:
+    #             p_v = 0
+    #         if q:
+    #             q_v = q.val
+    #             q = q.next
+    #         else:
+    #             q_v = 0
+    #         c, sum = divmod(p_v + q_v + c, 10)
+    #         ans.next = ListNode(sum)
+    #         ans = ans.next
+    #     return ans_head.next
+    
+    # def addTwoNumbers(self, l1, l2):
+    #     """
+    #     :type l1: ListNode
+    #     :type l2: ListNode
+    #     :rtype: ListNode
+    #     """
+    #     result = ListNode(0)
+    #     result_tail = result
+    #     carry = 0
+                
+    #     while l1 or l2 or carry:
+    #         val1  = (l1.val if l1 else 0)
+    #         val2  = (l2.val if l2 else 0)
+    #         carry, out = divmod(val1+val2 + carry, 10)
+                      
+    #         result_tail.next = ListNode(out)
+    #         result_tail = result_tail.next
+            
+    #         l1 = (l1.next if l1 else None)
+    #         l2 = (l2.next if l2 else None)
+               
+    #     return result.next
         
 # @lc code=end
 

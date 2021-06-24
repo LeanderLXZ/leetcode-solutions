@@ -6,20 +6,45 @@
 # https://leetcode.com/problems/merge-two-sorted-lists/description/
 #
 # algorithms
-# Easy (52.01%)
-# Likes:    3670
-# Dislikes: 543
-# Total Accepted:    912.7K
-# Total Submissions: 1.8M
+# Easy (56.95%)
+# Likes:    7200
+# Dislikes: 799
+# Total Accepted:    1.5M
+# Total Submissions: 2.6M
 # Testcase Example:  '[1,2,4]\n[1,3,4]'
 #
-# Merge two sorted linked lists and return it as a new list. The new list
-# should be made by splicing together the nodes of the first two lists.
+# Merge two sorted linked lists and return it as a sorted list. The list should
+# be made by splicing together the nodes of the first two lists.
 # 
-# Example:
 # 
-# Input: 1->2->4, 1->3->4
-# Output: 1->1->2->3->4->4
+# Example 1:
+# 
+# 
+# Input: l1 = [1,2,4], l2 = [1,3,4]
+# Output: [1,1,2,3,4,4]
+# 
+# 
+# Example 2:
+# 
+# 
+# Input: l1 = [], l2 = []
+# Output: []
+# 
+# 
+# Example 3:
+# 
+# 
+# Input: l1 = [], l2 = [0]
+# Output: [0]
+# 
+# 
+# 
+# Constraints:
+# 
+# 
+# The number of nodes in both lists is in the range [0, 50].
+# -100 <= Node.val <= 100
+# Both l1 and l2 are sorted in non-decreasing order.
 # 
 # 
 #
@@ -27,18 +52,11 @@
 # @lc code=start
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-
+    
     # Iteration
     # Time complexity : O(n+m)
     # Because exactly one of l1 and l2 is incremented on each loop iteration,
@@ -67,7 +85,6 @@ class Solution:
                 ans_tail, l2 = self.append_tail(ans_tail, l2)
         return ans.next
     
-    
     # Recursion
     # Time complexity : O(n+m)
     # Because each recursive call increments the pointer to l1 or l2 by one 
@@ -88,26 +105,6 @@ class Solution:
     #     else:
     #         l2.next = self.mergeTwoLists(l1, l2.next)
     #         return l2
-    
-    
-    # def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-    #     new_list = ListNode(None)
-    #     new_node = new_list
-    #     while not (l1 is None or l2 is None):
-    #         if l1.val < l2.val:
-    #             new_node.next = l1
-    #             l1 = l1.next
-    #         else:
-    #             new_node.next = l2
-    #             l2 = l2.next
-    #         new_node = new_node.next
-        
-    #     if l1 is None and l2 is not None:
-    #         new_node.next = l2
-    #     elif l1 is not None and l2 is None:
-    #         new_node.next = l1
-        
-    #     return new_list.next
-        
+
 # @lc code=end
 
