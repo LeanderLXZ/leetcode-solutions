@@ -7,5 +7,7 @@ do
   file=${file[@]%\.*}
   echo "Moving $file_path to problems/$file/"
   mkdir amazon/$file
+  mkdir problems/$file
   mv $file_path amazon/$file
+  cp -rf amazon/$file problems/$file
 done
